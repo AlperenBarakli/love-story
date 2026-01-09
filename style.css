@@ -1,0 +1,256 @@
+.bg-float{
+  background-image: url("assets/img/11.jpg") !important;
+}
+
+/* ARKA PLAN FOTO DÜZELTME */
+.bg-float{
+  filter: blur(2px) brightness(1) saturate(1.6) contrast(1.15) !important;
+  transform: scale(1.02) !important;
+}
+
+/* RENK KATMANINI YUMUŞAT */
+body::before{
+  opacity: .45 !important;
+}
+/* 1) Arka planı tekrar geri plana al (okunurluk) */
+.bg-float{
+  filter: blur(8px) brightness(.45) saturate(1.1) !important;
+  transform: scale(1.05) !important;
+}
+
+/* 2) Gri havayı kır: arka plandaki renkli glow'u biraz güçlendir (metni bozmaz) */
+body::before{
+  filter: blur(16px) saturate(1.6) !important;
+  opacity: .95 !important;
+}
+
+/* 3) Site “kartları” daha renkli/premium olsun */
+.panel, .card{
+  background:
+    linear-gradient(180deg, rgba(255,77,141,.10), rgba(138,92,255,.08)),
+    rgba(255,255,255,.05) !important;
+  border-color: rgba(255,255,255,.16) !important;
+}
+
+/* 4) Yazı okunurluğunu artır */
+.lead, .muted{
+  color: rgba(255,255,255,.78) !important;
+}
+.h1, h2{
+  text-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+/* 5) Topbar biraz daha canlı olsun */
+.topbar{
+  background:
+    linear-gradient(90deg, rgba(138,92,255,.14), rgba(255,77,141,.12)),
+    rgba(255,255,255,.04) !important;
+  border-color: rgba(255,255,255,.18) !important;
+}.panel:hover, .love-card:hover{
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(255,77,141,.25);
+}
+.btn{
+  transition: all .25s ease;
+}
+.btn:hover{
+  filter: brightness(1.1);
+  box-shadow: 0 10px 25px rgba(138,92,255,.35);
+}
+.h1, h2{
+  text-shadow:
+    0 0 12px rgba(255,77,141,.45),
+    0 0 22px rgba(138,92,255,.25);
+}
+.panel{
+  animation: fadeUp .8s ease both;
+}
+@keyframes fadeUp{
+  from{ opacity:0; transform: translateY(20px); }
+  to{ opacity:1; transform:none; }
+}
+.ph:hover img{
+  transform: scale(1.08);
+  filter: saturate(1.3) contrast(1.1);
+}
+.paper{
+  backdrop-filter: blur(6px);
+}
+::-webkit-scrollbar{ width:10px; }
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, #ff4d8d, #8a5cff);
+  border-radius:10px;
+}
+::-webkit-scrollbar-track{
+  background: rgba(255,255,255,.05);
+}
+body{
+  animation: bodyIn 1s ease;
+}
+@keyframes bodyIn{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+/* ===== FINAL (TEMİZ) ===== */
+
+/* Arka plan foto */
+.bg-float{
+  background-image: url("assets/img/11.jpg");
+  filter: blur(8px) brightness(.45) saturate(1.1);
+  transform: scale(1.05);
+}
+
+/* Renkli glow katmanı */
+body::before{
+  filter: blur(16px) saturate(1.6);
+  opacity: .95;
+}
+
+/* Kartları daha renkli/premium yap */
+.panel, .card{
+  background:
+    linear-gradient(180deg, rgba(255,77,141,.10), rgba(138,92,255,.08)),
+    rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.16);
+}
+
+/* Yazı okunurluğu */
+.lead, .muted{ color: rgba(255,255,255,.78); }
+.h1, h2{ text-shadow: 0 0 10px rgba(255,77,141,.22), 0 0 18px rgba(138,92,255,.16); }
+
+/* Topbar */
+.topbar{
+  background:
+    linear-gradient(90deg, rgba(138,92,255,.14), rgba(255,77,141,.12)),
+    rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.18);
+}
+
+/* Hover efektleri */
+.panel, .love-card{
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  will-change: transform;
+}
+.panel:hover, .love-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35), 0 12px 30px rgba(255,77,141,.18);
+}
+
+/* Buton */
+.btn{
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+.btn:hover{
+  filter: brightness(1.08);
+  box-shadow: 0 14px 35px rgba(138,92,255,.22);
+}
+
+/* Galeri */
+.ph img{ transition: transform .25s ease, filter .25s ease; }
+.ph:hover img{ transform: scale(1.06); filter: saturate(1.2) contrast(1.08); }
+
+/* Mektup */
+.paper{ backdrop-filter: blur(4px); }
+
+/* Scrollbar */
+::-webkit-scrollbar{ width:10px; }
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--accent1), var(--accent2));
+  border-radius:10px;
+}
+::-webkit-scrollbar-track{ background: rgba(255,255,255,.05); }
+
+/* Sayfa açılış (hafif) */
+body{ animation: bodyIn .5s ease; }
+@keyframes bodyIn{ from{opacity:0;} to{opacity:1;} }
+
+/* Hareket hassasiyeti */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+}
+.love-card.is-hidden{ display:none; }
+.love-card.is-show{ display:block; animation: loveIn .5s ease both; }
+
+@keyframes loveIn{
+  from{ opacity:0; transform: translateY(14px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+/* ===== JS EFFECT PACK (3,4,6,7) ===== */
+
+/* (4) Mouse-follow light */
+#mouseGlow{
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  left: 0; top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1; /* bg-float(0) üstü, content(3) altı */
+  background: radial-gradient(circle, rgba(255,77,141,.22), rgba(138,92,255,.14), transparent 60%);
+  filter: blur(18px) saturate(1.2);
+  opacity: .85;
+  mix-blend-mode: screen;
+}
+
+/* (3) Heartbeat (counter panel) */
+@keyframes heartBeat {
+  0%   { transform: translateY(0) scale(1); }
+  18%  { transform: translateY(-1px) scale(1.012); }
+  36%  { transform: translateY(0) scale(1); }
+  54%  { transform: translateY(-1px) scale(1.008); }
+  72%  { transform: translateY(0) scale(1); }
+  100% { transform: translateY(0) scale(1); }
+}
+.counterPulse{
+  animation: heartBeat 1.65s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* (6) Cinematic transition for slideshow image */
+.lbImg{
+  transition: opacity .35s ease, transform .55s ease, filter .55s ease;
+  opacity: 1;
+  transform: scale(1);
+  filter: none;
+}
+.lbImg.cine-out{
+  opacity: 0;
+  transform: scale(1.05);
+  filter: blur(6px) saturate(1.15);
+}
+
+/* (7) Long press hearts burst */
+.press-heart{
+  position: fixed;
+  left: 0; top: 0;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  pointer-events: none;
+  z-index: 80;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
+  animation: heartPop 900ms ease-out forwards;
+  opacity: .95;
+}
+@keyframes heartPop{
+  0%   { transform: translate(-50%, -50%) scale(.75); opacity: 0; }
+  15%  { opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.35); opacity: 0; }
+}
+#pressHint{
+  margin-top:14px;
+  text-align:center;
+  font-size:13.5px;
+  color: rgba(255,255,255,.65);
+  font-style: italic;
+  animation: hintPulse 2.2s ease-in-out infinite;
+  user-select:none;
+}
+
+@keyframes hintPulse{
+  0%{ opacity:.3; }
+  50%{ opacity:.85; }
+  100%{ opacity:.3; }
+}
+
+
